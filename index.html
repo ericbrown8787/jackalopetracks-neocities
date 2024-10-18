@@ -1,50 +1,227 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JackalopeTracks</title>
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <script src="/index.js" defer></script>
-  </head>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
 
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/index.js" defer></script> 
+  </head>
   <body>
+  
     <header>
-      <h1>JackalopeTracks</h1>
+      <!--<h1>JackalopeTracks</h1>-->
       <nav>
         <ul>
-          <li><a href="/pages/links.html">Links</a></li>
+          <!--<li><a href="/links.html">Links</a></li>-->
         </ul>
       </nav>
     </header>
-
+    
     <main>
-      <article id="intro">
-        <h2>Introduction</h2>
-        <p>Welcome to whatever this thing is. This is mostly a space for me to experiment with web development, design
-          and writing in public(but outside of the constraints of school or work), and hopefully in doing so, to help
-          keep the internet weird.</p>
-        <p>Things you might find here:</p>
-        <ul>
-          <li>Design experiments</li>
-          <li>Links to things I find interesting or useful</li>
-          <li>Toy projects</li>
-          <li>Tools I build</li>
-          <li>Games</li>
-          <li>Bad art</li>
-          <li>Good art</li>
-          <li>Fiction</li>
-          <li>Nonfiction</li>
-        </ul>
-      </article>
+    <section id="scene" class="scene">
+      <a href="/" class="door"></a>
+    </section>
+    <section id="dialogue-box" class="dialogue-box">
+    <figure id="character-portrait-container" class="character-portrait-container">
+      <figcaption id="character-name" class=character-name>CHARACTER NAME</figcaption>
+      <img class="character-portrait" src="/img/MENTHE.svg" alt="MENTHE">  
+      <img class="character-portrait" src="/img/FROBERT.svg" alt="FROBERT">
+      <img class="character-portrait" src="/img/RADICCIO.svg" alt="RADICCIO">  
+      <img class="character-portrait" src="/img/SMOKESTACK.svg" alt="SMOKESTACK">
+    </figure>
+    <p id="dialogue" class="dialogue">[[There isn't much here right now. Check back soon!]]</p>
+    </section>
+    <aside class="character-select">
+      <h3 class="character-select-heading">Choose your character:</h3>
+      <form class="characters" id="character-menu">
+      <input type="radio" id="MENTHE" name="character" value="MENTHE" checked>
+      <label for="MENTHE" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/MENTHE.svg" alt="MENTHE"></label>
+      <input type="radio" id="FROBERT" name="character" value="FROBERT">
+      <label for="FROBERT" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/FROBERT.svg" alt="FROBERT"></label>
+      <input type="radio" id="RADICCIO" name="character" value="RADICCIO">
+      <label for="RADICCIO" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/RADICCIO.svg" alt="RADICCIO"></label>
+      <input type="radio" id="SMOKESTACK" name="character" value="SMOKESTACK">
+      <label for="SMOKESTACK" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/SMOKESTACK.svg" alt="SMOKESTACK"></label>      
+      </form>
 
+    
+    
+    </aside>
     </main>
+  <style>
+  /* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    *, *::before, *::after{
+      margin: 0; 
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    :root{
+      --color-00: black;
+      --color-01: white;
+      --color-10: #ff00FF; 
+      --color-11: #00FFAA;
+    }
+    
+    body {
+      background-color: var(--color-00);
+      color: var(--color-01);
+      max-width: 100%;
+      font-family: "VT323";
+    }
+    
+    header {
+      border: 5px solid var(--color-11);
+      min-height: 20px;
+      }
+    
+    main{
+      display: grid;
+      grid-template-rows: 5fr 1fr;
+      max-width: 1024px;
+      max-height: 768px;
+      }
+    
+    .scene{
+    
+    }
+    .door{
+      display: block;
+      outline: 1px solid red;
+      content: "meow";
+      height: 100px;
+      width: 100px;
+      }
+    .character-select{
+      position: fixed;
+      right:0;
+      bottom: 0;
+      display: flex;
+      padding: 10px;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-    <footer>
+    .characters{
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      gap: 10px;
+    }
 
-    </footer>
-
+    .characters input{
+      display:none;
+    }
+    
+    .characters label{
+    min-height: fit-content;
+    }
+    
+    label > .character-select-portrait__image{
+      max-width: 32px;
+      filter:invert(1);
+      }
+    
+    input[type="radio"]:checked + label{
+      outline: 5px solid var(--color-10);
+      background: var(--color-11);
+    }
+    
+    input[type="radio"]:checked + label .character-select-portrait__image{
+    filter: invert(0);
+    }
+    
+    .characters label{
+    display: flex;
+    transition: transform 250ms ease-in-out;
+    transform: scale(1);
+    }
+    
+    .characters label:hover, input[type="radio"]:checked + label{
+    transition: transform 250ms ease-in-out;
+    transform: scale(1.2);
+    }
+    
+    .dialogue-box {
+    border: 5px solid var(--color-10);
+    grid-row: 2;
+    gap: 20px;
+    display: flex;
+    }
+    
+    .dialogue{
+      font-size: 1.5rem;
+      align-self: center;
+      }
+    
+    .character-portrait-container{
+      display: grid;
+      padding: 5px;
+      background: var(--color-11);
+      grid-template-columns: 1fr;
+      grid-template-rows: 85% 15%;
+      }
+      
+    .character-portrait{
+      justify-content: center;
+    align-items: center;
+      transition: opacity 250ms ease-in-out;
+      opacity: 0;
+      grid-row: 1;
+      grid-column: 1;
+      max-width: 100px;
+      /*top: 0;*/
+      /*left: 0;*/
+    }
+    .character-name{
+      text-align: center;
+      grid-row: 2;
+      font-size: 1.2rem;
+      color: var(--color-00);
+      }
+      
+      .character-portrait.active{
+        transition: opacity 250ms ease-in-out;
+        opacity: 1;
+        }
+    
+  </style>
+  
+  <script defer>
+  // Global Variables
+  let activeCharacter;
+  const characterPortraits = [...document.querySelectorAll(".character-portrait")]
+  const characterNameDisplay = document.querySelector("#character-name"); 
+  const characterSelect = document.querySelector("#character-menu");
+  function setActiveCharacter(characterName){
+    activeCharacter = characterName;
+    characterPortraits.forEach(portrait => {
+      portrait.classList.remove("active");
+      if (portrait.getAttribute("alt") === activeCharacter){
+        portrait.classList.add("active");
+        }
+      })
+    characterNameDisplay.innerText = activeCharacter;
+  }
+  
+  [...document.querySelectorAll('input[name="character"]')].forEach(element => {
+    const characterId = element.id;
+    if (element.checked) activeCharacter = characterId;
+    element.addEventListener("change", event => {
+      setActiveCharacter(characterId);
+      });
+    })
+    
+    setActiveCharacter(activeCharacter || "MENTHE");
+  </script>
   </body>
-
 </html>

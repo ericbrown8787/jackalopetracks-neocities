@@ -1,16 +1,1 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
-*, *::before, *::after{
-  margin: 0; 
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: white;
-  color: black;
-  font-family: "Fira Code";
-}
