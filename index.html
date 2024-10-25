@@ -1,227 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JackalopeTracks</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <script src="/index.js" defer></script> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body>
-  
     <header>
-      <!--<h1>JackalopeTracks</h1>-->
-      <nav>
+      <nav class="main-nav">
         <ul>
-          <!--<li><a href="/links.html">Links</a></li>-->
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
         </ul>
       </nav>
     </header>
-    
     <main>
-    <section id="scene" class="scene">
-      <a href="/" class="door"></a>
-    </section>
-    <section id="dialogue-box" class="dialogue-box">
-    <figure id="character-portrait-container" class="character-portrait-container">
-      <figcaption id="character-name" class=character-name>CHARACTER NAME</figcaption>
-      <img class="character-portrait" src="/img/MENTHE.svg" alt="MENTHE">  
-      <img class="character-portrait" src="/img/FROBERT.svg" alt="FROBERT">
-      <img class="character-portrait" src="/img/RADICCIO.svg" alt="RADICCIO">  
-      <img class="character-portrait" src="/img/SMOKESTACK.svg" alt="SMOKESTACK">
-    </figure>
-    <p id="dialogue" class="dialogue">[[There isn't much here right now. Check back soon!]]</p>
-    </section>
-    <aside class="character-select">
-      <h3 class="character-select-heading">Choose your character:</h3>
-      <form class="characters" id="character-menu">
-      <input type="radio" id="MENTHE" name="character" value="MENTHE" checked>
-      <label for="MENTHE" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/MENTHE.svg" alt="MENTHE"></label>
-      <input type="radio" id="FROBERT" name="character" value="FROBERT">
-      <label for="FROBERT" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/FROBERT.svg" alt="FROBERT"></label>
-      <input type="radio" id="RADICCIO" name="character" value="RADICCIO">
-      <label for="RADICCIO" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/RADICCIO.svg" alt="RADICCIO"></label>
-      <input type="radio" id="SMOKESTACK" name="character" value="SMOKESTACK">
-      <label for="SMOKESTACK" class="character-select-portrait"><img class="character-select-portrait__image" src="/img/SMOKESTACK.svg" alt="SMOKESTACK"></label>      
-      </form>
-
-    
-    
-    </aside>
+      <article class="disclaimer">
+        <h3>Disclaimer</h3>
+        <p>
+          This site uses JavaScript and may contain animations, flashing images
+          and disorienting visual effects. It is designed mobile-first, and
+          should work reasonably well on most modern mobile devices. I will try
+          to make sure that any sections of the site that are not mobile
+          friendly are clearly marked as such. This site does not contain any
+          autoplaying music or video. As far as I'm concerned, those should
+          either be opt-in or not an option at all.
+        </p>
+        <p>
+          While this site is generally safe for work, I am an adult and the
+          content of my site reflects this. You may encounter swearing,
+          discussion of dark topics or sexuality.
+        </p>
+      </article>
+      <!-- <aside class="companion">
+        <article class="dialogue-box">Hello</article>
+        <button class="character">
+          <img class="character-portrait" src="./img/MENTHE.svg" alt="MENTHE" />
+        </button>
+      </aside> -->
     </main>
-  <style>
-  /* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-    *, *::before, *::after{
-      margin: 0; 
-      padding: 0;
-      box-sizing: border-box;
-    }
-  
-    :root{
-      --color-00: black;
-      --color-01: white;
-      --color-10: #ff00FF; 
-      --color-11: #00FFAA;
-    }
-    
-    body {
-      background-color: var(--color-00);
-      color: var(--color-01);
-      max-width: 100%;
-      font-family: "VT323";
-    }
-    
-    header {
-      border: 5px solid var(--color-11);
-      min-height: 20px;
+    <footer></footer>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
       }
-    
-    main{
-      display: grid;
-      grid-template-rows: 5fr 1fr;
-      max-width: 1024px;
-      max-height: 768px;
-      }
-    
-    .scene{
-    
-    }
-    .door{
-      display: block;
-      outline: 1px solid red;
-      content: "meow";
-      height: 100px;
-      width: 100px;
-      }
-    .character-select{
-      position: fixed;
-      right:0;
-      bottom: 0;
-      display: flex;
-      padding: 10px;
-      flex-direction: column;
-      gap: 5px;
-    }
 
-    .characters{
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 100%;
-      gap: 10px;
-    }
+      body {
+        background-image: url(data:image/png;base64,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);
+        background-color: rebeccapurple;
+      }
+      .companion {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        grid-template-columns: 75% 25%;
+      }
+      .character {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
 
-    .characters input{
-      display:none;
-    }
-    
-    .characters label{
-    min-height: fit-content;
-    }
-    
-    label > .character-select-portrait__image{
-      max-width: 32px;
-      filter:invert(1);
+        max-width: 100px;
       }
-    
-    input[type="radio"]:checked + label{
-      outline: 5px solid var(--color-10);
-      background: var(--color-11);
-    }
-    
-    input[type="radio"]:checked + label .character-select-portrait__image{
-    filter: invert(0);
-    }
-    
-    .characters label{
-    display: flex;
-    transition: transform 250ms ease-in-out;
-    transform: scale(1);
-    }
-    
-    .characters label:hover, input[type="radio"]:checked + label{
-    transition: transform 250ms ease-in-out;
-    transform: scale(1.2);
-    }
-    
-    .dialogue-box {
-    border: 5px solid var(--color-10);
-    grid-row: 2;
-    gap: 20px;
-    display: flex;
-    }
-    
-    .dialogue{
-      font-size: 1.5rem;
-      align-self: center;
+
+      .character:hover .character-portrait {
+        transform: translateY(10px);
+        transition: transform 0.5s ease-out;
       }
-    
-    .character-portrait-container{
-      display: grid;
-      padding: 5px;
-      background: var(--color-11);
-      grid-template-columns: 1fr;
-      grid-template-rows: 85% 15%;
+
+      .character-portrait {
+        transform: translateY(30px);
+        transition: transform 0.5s ease-out;
+        max-width: 100%;
       }
-      
-    .character-portrait{
-      justify-content: center;
-    align-items: center;
-      transition: opacity 250ms ease-in-out;
-      opacity: 0;
-      grid-row: 1;
-      grid-column: 1;
-      max-width: 100px;
-      /*top: 0;*/
-      /*left: 0;*/
-    }
-    .character-name{
-      text-align: center;
-      grid-row: 2;
-      font-size: 1.2rem;
-      color: var(--color-00);
+      .dialogue-box {
+        padding: 10px;
+        width: 100%;
+        overflow-y: scroll;
+        border: 3px solid purple;
+        background: black;
+        color: white;
+        height: 100px;
+        opacity: 0;
+        transition: opacity 2s ease-in;
       }
-      
-      .character-portrait.active{
-        transition: opacity 250ms ease-in-out;
+      .dialogue-active {
         opacity: 1;
-        }
-    
-  </style>
-  
-  <script defer>
-  // Global Variables
-  let activeCharacter;
-  const characterPortraits = [...document.querySelectorAll(".character-portrait")]
-  const characterNameDisplay = document.querySelector("#character-name"); 
-  const characterSelect = document.querySelector("#character-menu");
-  function setActiveCharacter(characterName){
-    activeCharacter = characterName;
-    characterPortraits.forEach(portrait => {
-      portrait.classList.remove("active");
-      if (portrait.getAttribute("alt") === activeCharacter){
-        portrait.classList.add("active");
-        }
-      })
-    characterNameDisplay.innerText = activeCharacter;
-  }
-  
-  [...document.querySelectorAll('input[name="character"]')].forEach(element => {
-    const characterId = element.id;
-    if (element.checked) activeCharacter = characterId;
-    element.addEventListener("change", event => {
-      setActiveCharacter(characterId);
-      });
-    })
-    
-    setActiveCharacter(activeCharacter || "MENTHE");
-  </script>
+        transition: opacity 2s ease-in;
+      }
+      .main-nav {
+        background: black;
+        border: 3px solid purple;
+        padding: 10px;
+      }
+      .main-nav ul {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .disclaimer {
+        display: none;
+      }
+    </style>
+    <!-- <script>
+      function handleCharacterClick() {
+        const dialogueBox = document.querySelector(".dialogue-box");
+        dialogueBox.innerText = "meow";
+        dialogueBox.classList.add("dialogue-active");
+        setTimeout(() => {
+          dialogueBox.classList.remove("dialogue-active");
+          dialogueBox.innerText = "";
+        }, 5000);
+      }
+      const characterPortrait = document.querySelector(".character");
+      characterPortrait.addEventListener("pointerup", handleCharacterClick);
+    </script> -->
   </body>
 </html>
