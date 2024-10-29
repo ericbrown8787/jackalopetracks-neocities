@@ -1,5 +1,33 @@
-console.log("Successfully loaded scripts! Good job!");
+async function populateLocation() {
+  const locationElement = document.querySelector(".location");
+  const ipResponse = await fetch("https://api.ipify.org?format=json");
+  const ipData = await ipResponse.json();
+  const ip = await ipData.ip;
+  const locationResponse = await fetch(
+    `http://ip-api.com/json/${ip}?fields=region,city`
+  );
+  const locationData = await locationResponse.json();
+  const location = `${locationData.city}, ${locationData.region}`;
+  locationElement.innerText = location;
+}
 
+function populateCondition() {
+  const condition = document.querySelector(".condition");
+  const possibleConditions = ["Sunny", "Cloudy", "Snow", "Rain", "Anomaly"];
+  const randomIndex = Math.floor(Math.random() * possibleConditions.length);
+  const currentCondition = possibleConditions[randomIndex];
+  condition.innerText = currentCondition;
+}
+
+function populateAdvisory() {
+  const advisory = document.querySelector(".advisory");
+  const possibleAdvisories = [
+    "High risk of anomalies in your area. Please stay indoors.",
+  ];
+  const randomIndex = Math.floor(Math.random() * possibleAdvisories.length);
+  const currentAdvisory = possibleAdvisories[randomIndex];
+  advisory.innerText = currentAdvisory;
+}
 function populateNews() {
   newsItems = [
     {
@@ -61,3 +89,6 @@ function updateDateTime() {
 
 updateDateTime();
 populateNews();
+populateLocation();
+populateCondition();
+populateAdvisory();
